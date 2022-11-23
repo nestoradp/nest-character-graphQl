@@ -25,4 +25,12 @@ export class TypeormDcComicCharacterRepository
       ),
     );
   }
+
+  findAllCharacter(): Promise<DcComicCharacterInterface[]> {
+    return this._dcComicCharacterEntityRepository.find();
+  }
+
+  findCharacterById(id: number): Promise<DcComicCharacterInterface> {
+    return this._dcComicCharacterEntityRepository.findOneBy({ id });
+  }
 }

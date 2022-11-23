@@ -23,8 +23,13 @@ export class DcComicCharacterResolver {
     );
   }
 
-  @Query(() => String)
-  sayHello(): string {
-    return 'Hello World!';
+  @Query(() => [DcComicCharacterType])
+  getCharacterList() {
+    return this._dcComicCharacterService.getCharacterList();
+  }
+
+  @Query(() => DcComicCharacterType)
+  getCharacterById(@Args('id') id: number) {
+    return this._dcComicCharacterService.getCharacterById(id);
   }
 }

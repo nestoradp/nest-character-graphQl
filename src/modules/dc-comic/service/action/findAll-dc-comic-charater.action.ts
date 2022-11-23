@@ -4,15 +4,12 @@ import { DcComicCharacterRepository } from '../../repository/dc-comic-character.
 import { DcComicCharacterInterface } from '../../interface/dc-comic-character.interface';
 
 @Injectable()
-export class CreateDcComicCharacterAction {
+export class FindAllDcComicCharaterAction {
   constructor(
     @Inject(DC_COMIC_CHARACTER_REPOSITORY)
     private readonly _dcComicCharacterRepository: DcComicCharacterRepository,
   ) {}
-
-  create(
-    dcComicCharacterInterface: DcComicCharacterInterface,
-  ): Promise<DcComicCharacterInterface> {
-    return this._dcComicCharacterRepository.create(dcComicCharacterInterface);
+  getCharacterList(): Promise<DcComicCharacterInterface[]> {
+    return this._dcComicCharacterRepository.findAllCharacter();
   }
 }

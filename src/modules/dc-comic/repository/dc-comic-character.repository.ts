@@ -6,4 +6,8 @@ export interface DcComicCharacterRepository {
   create(
     dcComicCharacterInterface: DcComicCharacterInterface,
   ): Promise<DcComicCharacterInterface>;
+
+  findAllCharacter(): Promise<DcComicCharacterInterface[]>;
+
+  findCharacterById(id: number): Promise<DcComicCharacterInterface>;
 }

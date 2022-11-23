@@ -7,6 +7,8 @@ import { TypeormDcComicCharacterRepository } from './repository/typeorm/typeorm-
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DcComicCharacterEntity } from './repository/entities/dc-comic-character.entity';
 import { DcComicCharacterMappers } from './mappers/dc-comic-character.mappers';
+import { FindAllDcComicCharaterAction } from './service/action/findAll-dc-comic-charater.action';
+import { FindOneByIdDcComicCharacterAction } from './service/action/findOneById-dc-comic-character.action';
 
 @Module({
   imports: [TypeOrmModule.forFeature([DcComicCharacterEntity])],
@@ -14,6 +16,8 @@ import { DcComicCharacterMappers } from './mappers/dc-comic-character.mappers';
     DcComicCharacterService,
     DcComicCharacterResolver,
     CreateDcComicCharacterAction,
+    FindAllDcComicCharaterAction,
+    FindOneByIdDcComicCharacterAction,
     DcComicCharacterMappers,
     {
       provide: DC_COMIC_CHARACTER_REPOSITORY,
