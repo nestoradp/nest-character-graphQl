@@ -4,6 +4,8 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { DcComicModule } from './modules/dc-comic/dc-comic.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ClientModule } from './client/client.module';
+import { MarvelModule } from './modules/marvel/marvel.module';
 
 @Module({
   imports: [
@@ -29,6 +31,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       autoSchemaFile: true,
     }),
     DcComicModule,
+    ClientModule,
+    MarvelModule,
   ],
   controllers: [],
   providers: [],
