@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import axios from 'axios';
-
+import fetch from 'node-fetch';
 @Injectable()
 export abstract class MarvelBaseClient {
   private readonly _apiUrl: string;
@@ -16,7 +16,9 @@ export abstract class MarvelBaseClient {
   }
 
   protected async get(url: string) {
-    return axios.get(this._apiUrl + url + this._ts + this._apiKey + this._hash);
+    return await fetch(
+      `https://gateway.marvel.com/v1/public/characters?ts=1&apikey=835bb2306bff2775290ba8ea8d6fe0cd&hash=8820100bd043e1eb7877f9f16d804a31`,
+    );
   }
 
   protected async post(url: string, payload: unknown) {

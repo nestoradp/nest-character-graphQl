@@ -9,11 +9,7 @@ export class MarvelCharacterResolver {
   ) {}
 
   @Query(() => [MarvelCharacterType])
-  async getCharacterMarvel() {
-    const a: MarvelCharacterType[] =
-      await this._marvelCharacterService.getMarvelCharacterList();
-
-    console.log(`Resolver:${JSON.stringify(a)}`);
-    return a;
+  getCharacterMarvel() {
+    return this._marvelCharacterService.getMarvelCharacterList();
   }
 }

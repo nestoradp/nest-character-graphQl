@@ -14,6 +14,7 @@ export class MarvelCharacterService {
   async getMarvelCharacterList(): Promise<MarvelCharacterType[]> {
     const characterList: Character[] =
       await this._findAllCharacterMarvelAction.getMarvelCharacterList();
+    console.log(characterList);
     return this._marvelCharacterMapper.convertListFromTypeList(characterList);
   }
 }
